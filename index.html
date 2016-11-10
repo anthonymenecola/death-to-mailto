@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<head>
+	<title>Death to mailto links</title>
+
+	<meta name="description" content="Alternatives to mailto links">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="style/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Karla|Merriweather" rel="stylesheet">
+
+	<script src="dist/clipboard.min.js"></script>
+
+</head>
+<body>
+	
+	<main>
+		<h1>Death to href=“mailto:”</h1>
+		<p>mailto links suck for people who use web based email clients. These are some implementations on how to make these better and provide more context via the front-end. Shout out to David Ghent for inspiring me to roll up my sleeves on this.</p>
+
+		<div class="options">
+			<h2>Option 1</h2>
+			<p class="email">copythisemail@prettyplease.com</p>
+
+			<button class="btn blue" data-clipboard-text="copythisemail@prettyplease.com">Copy to clipboard</button>
+		</div>
+
+	</main>
+
+</body>
+</html>
