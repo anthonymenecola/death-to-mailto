@@ -77,6 +77,11 @@ h2 {
 
 a {
 	color: #1348DE;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
 }
 
 *:focus {
@@ -112,15 +117,16 @@ button {
 	margin: 2em 0;
 }
 
-.email {
+#email {
 	font-size: 1.25em;
 	color: #1348DE;
 }
 
-
-
-
-
-
-
+#copied-msg {
+	font-size: 0.75em;
+	color: green;
+	padding: 0.25em 0;
+	color: #64ab64;
+	display: none;
+}
 

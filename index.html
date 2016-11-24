@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="style/style.css">
 	<link href="https://fonts.googleapis.com/css?family=Karla|Merriweather" rel="stylesheet">
 
-	<script src="dist/clipboard.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.13/clipboard.min.js"></script>
 
 </head>
 <body>
@@ -19,13 +19,54 @@
 		<p>mailto links suck for people who use web based email clients. These are some implementations on how to make these better and provide more context via the front-end. Shout out to David Ghent for inspiring me to roll up my sleeves on this.</p>
 
 		<div class="options">
-			<h2>Option 1</h2>
-			<p class="email">copythisemail@prettyplease.com</p>
+			<h2>Option 1 - button to copy</h2>
+			<p id="email">copythisemail@prettyplease.com</p>
 
-			<button class="btn blue" data-clipboard-text="copythisemail@prettyplease.com">Copy to clipboard</button>
+			<button class="btn blue" data-clipboard-target="#email">Copy to clipboard</button>
+
+			<h2>Option 2 - Copy href</h2>
+			<a href="#" data-clipboard-target="#href" id="href">number2@prettyplease.com</a>
+			<p id="copied-msg">copied to clipboard!</p>
 		</div>
 
 	</main>
 
+<script type="text/javascript">
+	var clipboard = new Clipboard('.btn');
+	var clipboard2 = new Clipboard('#href')
+
+	clipboard2.on('success', function(e) { 
+		console.info('Action:', e.action); 
+		console.info('Text:', e.text); 
+		console.info('Trigger:', e.trigger); 
+
+		show_message();
+
+		e.clearSelection(); 
+	}); 
+
+	clipboard2.on('error', function(e) { 
+		console.error('Action:', e.action); 
+		console.error('Trigger:', e.trigger); 
+	});
+
+
+	function show_message() {
+		var copied_msg = document.getElementById('copied-msg');
+		copied_msg.style.display="block";
+
+		setTimeout (hide_message, 3000);
+	};
+
+	function hide_message() {
+		var copied_msg = document.getElementById('copied-msg');
+		copied_msg.style.display="none";
+	};
+
+
+
+
+
+</script>
 </body>
 </html>
